@@ -1,81 +1,71 @@
 # Data Analysis Interview Challenge
 
-This challenge is your opportunity to demonstrate creative and rigorous data analysis skills. You may include your code at the end of your submission or in a separate file. Incomplete solutions are also acceptable.
+This is your chance to wow us with creative and rigorous solutions! Please include your code at the end of your submission, or in a separate file. We also accept incomplete solutions.
 
 ---
 
-## Part 1 — Exploratory Data Analysis
+## Part 1 ‐ Exploratory Data Analysis
 
-The file `logins.json` contains simulated timestamps of user logins in a particular geographic location.
+The attached `logins.json` file contains (simulated) timestamps of user logins in a particular geographic location. 
 
-**Tasks:**
-1. Aggregate login counts based on **15-minute intervals**.
-2. Visualize the resulting time series to best characterize underlying patterns of demand.
-3. Describe important features, such as daily cycles or trends.
-4. Report any data quality issues you encounter.
+**Instructions:**
+- Aggregate these login counts based on 15-minute time intervals.  
+- Visualize and describe the resulting time series of login counts in ways that best characterize the underlying patterns of the demand.  
+- Please report/illustrate important features of the demand, such as daily cycles.  
+- If there are data quality issues, please report them.
 
 ---
 
-## Part 2 — Experiment and Metrics Design
+## Part 2 ‐ Experiment and Metrics Design
 
-Two neighboring cities, **Gotham** and **Metropolis**, have complementary activity patterns:
-- **Weekdays:** Gotham is most active at night; Metropolis is most active during the day.
-- **Weekends:** Reasonable activity in both cities.
+The neighboring cities of Gotham and Metropolis have complementary circadian rhythms:  
+- On weekdays, Ultimate Gotham is most active at night, and Ultimate Metropolis is most active during the day.  
+- On weekends, there is reasonable activity in both cities.  
 
-A toll bridge connecting the two cities encourages driver partners to remain exclusive to one city. Ultimate managers propose reimbursing toll costs to encourage drivers to serve both cities.
+However, a toll bridge, with a two-way toll, between the two cities causes driver partners to tend to be exclusive to each city. The Ultimate managers of city operations for the two cities have proposed an experiment to encourage driver partners to be available in both cities, by reimbursing all toll costs.
 
 **Questions:**
 
-1. **Key measure of success**  
-   - Choose a metric to measure whether driver partners serve both cities.  
-   - Explain why this metric is appropriate.
+1. What would you choose as the key measure of success of this experiment in encouraging driver partners to serve both cities, and why would you choose this metric?  
 
-2. **Experiment Design**  
-   Describe a practical experiment to test the effectiveness of toll reimbursement:
-   - **Implementation:** How will you run the experiment?
-   - **Statistical Test:** Which tests will you use to verify significance?
-   - **Interpretation:** How would you interpret results and provide recommendations to city operations? Include caveats if necessary.
+2. Describe a practical experiment you would design to compare the effectiveness of the proposed change in relation to the key measure of success. Please provide details on:  
+   a) how you will implement the experiment  
+   b) what statistical test(s) you will conduct to verify the significance of the observation  
+   c) how you would interpret the results and provide recommendations to the city operations team along with any caveats  
 
-> Note: Gotham and Metropolis data are not included in the dataset; you can answer this without them.
+> Note: The two cities of Gotham and Metropolis are not in the provided dataset; however, you do not need this information to answer Part 2.
 
 ---
 
-## Part 3 — Predictive Modeling
+## Part 3 ‐ Predictive Modeling
 
-Ultimate wants to predict **rider retention**. You are provided with a cohort of users who signed up in **January 2014**. Users are considered retained if they were **active (took a trip) in the preceding 30 days**.
+Ultimate is interested in predicting rider retention. To help explore this question, we have provided a sample dataset of a cohort of users who signed up for an Ultimate account in January 2014. The data was pulled several months later; we consider a user retained if they were “active” (i.e. took a trip) in the preceding 30 days.
 
-**Data File:** `ultimate_data_challenge.json`
+We would like you to use this data set to help understand what factors are the best predictors for retention, and offer suggestions to operationalize those insights to help Ultimate.  
+
+The data is in the attached file `ultimate_data_challenge.json`. See below for a detailed description of the dataset. Please include any code you wrote for the analysis and delete the dataset when you have finished with the challenge.
 
 **Tasks:**
 
-1. **Cleaning and Exploratory Analysis**  
-   - Perform data cleaning and basic exploration.  
-   - Visualize key patterns.  
-   - Report the fraction of users retained.
+1. Perform any cleaning, exploratory analysis, and/or visualizations to use the provided data for this analysis (a few sentences/plots describing your approach will suffice). What fraction of the observed users were retained?  
 
-2. **Predictive Modeling**  
-   - Build a model to predict if a user will be active in their 6th month.  
-   - Discuss your approach, alternatives considered, and potential concerns.  
-   - Evaluate model validity using key metrics (accuracy, ROC AUC, etc.).
+2. Build a predictive model to help Ultimate determine whether or not a user will be active in their 6th month on the system. Discuss why you chose your approach, what alternatives you considered, and any concerns you have. How valid is your model? Include any key indicators of model performance.  
 
-3. **Operational Insights**  
-   - Briefly describe how Ultimate can use insights from your model to improve long-term rider retention.
+3. Briefly discuss how Ultimate might leverage the insights gained from the model to improve its long term rider retention (again, a few sentences will suffice).
 
 ---
 
 ## Data Description
 
-| Column | Description |
-|--------|-------------|
-| `city` | City in which the user signed up |
-| `phone` | Primary device used by the user |
-| `signup_date` | Date of account registration (`YYYYMMDD`) |
-| `last_trip_date` | Last date the user completed a trip (`YYYYMMDD`) |
-| `avg_dist` | Average distance (miles) per trip in the first 30 days |
-| `avg_rating_by_driver` | Rider’s average rating given by drivers |
-| `avg_rating_of_driver` | Rider’s average rating of drivers |
-| `surge_pct` | Percentage of trips taken with surge multiplier > 1 |
-| `avg_surge` | Average surge multiplier across all trips |
-| `trips_in_first_30_days` | Number of trips taken in the first 30 days |
-| `ultimate_black_user` | TRUE if user took an Ultimate Black in the first 30 days; FALSE otherwise |
-| `weekday_pct` | Percentage of trips occurring on weekdays |
+- `city`: city this user signed up in  
+- `phone`: primary device for this user  
+- `signup_date`: date of account registration; in the form ‘YYYYMMDD’  
+- `last_trip_date`: the last time this user completed a trip; in the form ‘YYYYMMDD’  
+- `avg_dist`: the average distance in miles per trip taken in the first 30 days after signup  
+- `avg_rating_by_driver`: the rider’s average rating over all of their trips  
+- `avg_rating_of_driver`: the rider’s average rating of their drivers over all of their trips  
+- `surge_pct`: the percent of trips taken with surge multiplier > 1  
+- `avg_surge`: the average surge multiplier over all of this user’s trips  
+- `trips_in_first_30_days`: the number of trips this user took in the first 30 days after signing up  
+- `ultimate_black_user`: TRUE if the user took an Ultimate Black in their first 30 days; FALSE otherwise  
+- `weekday_pct`: the percent of the user’s trips occurring during a weekday
